@@ -91,26 +91,33 @@ const normalizeStdio = (options) => {
     const length = Math.max(stdio.length, aliases.length)
     return Array.from({length}, (value, index) => stdio[index])
 }
+
+function getGitHash() {
+    const res = spawnSync(...parseCommand('git rev-parse --short HEAD'))
+    return res.stdout
+}
+
+function getGitBranch() {
+    const res = spawnSync(...parseCommand('git rev-parse --abbrev-ref HEAD'))
+    return res.stdout
+}
+
+function getGitProjectName() {
+    const res = spawnSync(...parseCommand('git rev-parse --absolute-git-dir'))
+    const projectName = res.stdout.split(path.sep).at(-2)
+    return projectName
+}
+
 /*
  * 此插件用于打包记录当前版本信息
  * */
-export default function getMetaRevised() {
-    function getGitHash() {
-        const res = spawnSync(...parseCommand('git rev-parse --short HEAD'))
-        return res.stdout
-    }
-
-    function getGitBranch() {
-        const res = spawnSync(...parseCommand('git rev-parse --abbrev-ref HEAD'))
-        return res.stdout
-    }
-
-    function getGitProjectName() {
-        const res = spawnSync(...parseCommand('git rev-parse --absolute-git-dir'))
-        const projectName = res.stdout.split(path.sep).at(-2)
-        return projectName
-    }
-
+export function getMetaRevised() {
     return `<meta name="revised" content="source:${getGitProjectName()}~${getGitBranch()}~${getGitHash()}" />`
+}
+
+export function getMetaRevisedObj() {
+    return {
+        revised: "source:${getGitProjectName()}~${getGitBranch()}~${getGitHash()}"
+    }
 }
 

@@ -7,8 +7,8 @@
 ## Usage
 
 ```js
-import { getMetaRevised } from 'package-version-source'
-import { createHtmlPlugin } from 'vite-plugin-html'
+import  getMetaRevised  from 'package-version-source'
+import createHtmlPlugin  from 'vite-plugin-html'
 createHtmlPlugin({
     minify: false,
     inject: {

@@ -1,6 +1,6 @@
 {
   "name": "package-version-source",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "用于记录构建的版本当时的状态，比如项目、分支、hash",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

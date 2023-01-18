@@ -1,0 +1,36 @@
+{
+  "name": "package-version-source",
+  "version": "1.0.0",
+  "description": "用于记录构建的版本当时的状态，比如项目、分支、hash",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c --bundleConfigAsCjs"
+  },
+  "keywords": [
+    "version",
+    "package",
+    "source",
+    "web"
+  ],
+  "author": "enjoy-wind",
+  "license": "ISC",
+  "homepage": "https://github.com/enjoy-wind/package-version-source.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enjoy-wind/package-version-source.git"
+  },
+  "main": "dist/source.cjs.min.js",
+  "module": "dist/source.esm.min.js",
+  "unpkg": "dist/souce.umd.min.js",
+  "dependencies": {
+    "cross-spawn": "^7.0.3",
+    "path-browserify": "^1.0.1"
+  },
+  "devDependencies": {
+    "rollup": "^3.10.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-terser": "^0.3.0",
+    "standard-version": "^9.5.0"
+  }
+}

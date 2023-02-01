@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/enjoy-wind/package-version-source/compare/v1.2.1...v1.2.2) (2023-02-01)
+
+
+### Bug Fixes
+
+* **来源内容格式化:** 移除换行符 ([a98ed00](https://github.com/enjoy-wind/package-version-source/commit/a98ed00eb195e4af105895a18198223eb3cce987))
+
 ### [1.2.1](https://github.com/enjoy-wind/package-version-source/compare/v1.2.0...v1.2.1) (2023-02-01)
 
 ## [1.2.0](https://github.com/enjoy-wind/package-version-source/compare/v1.1.2...v1.2.0) (2023-02-01)

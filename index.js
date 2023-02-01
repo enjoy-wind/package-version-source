@@ -1,5 +1,5 @@
 import path from 'path'
-import process from 'node:process'
+//import process from 'node:process'(node 15以下不支持此用法)
 
 import {spawnSync} from 'child_process'
 import crossSpawn from 'cross-spawn'
@@ -111,13 +111,15 @@ function getGitProjectName() {
 /*
  * 此插件用于打包记录当前版本信息
  * */
-export function getMetaRevised() {
+function getMetaRevised() {
     return `<meta name="revised" content="source:${getGitProjectName()}~${getGitBranch()}~${getGitHash()}" />`
 }
 
-export function getMetaRevisedObj() {
+function getMetaRevisedObj() {
     return {
-        revised: "source:${getGitProjectName()}~${getGitBranch()}~${getGitHash()}"
+        revised: `source:${getGitProjectName()}~${getGitBranch()}~${getGitHash()}`
     }
 }
+
+export default {getMetaRevised, getMetaRevisedObj}
 

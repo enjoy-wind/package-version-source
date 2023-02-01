@@ -94,17 +94,18 @@ const normalizeStdio = (options) => {
 
 function getGitHash() {
     const res = spawnSync(...parseCommand('git rev-parse --short HEAD'))
-    return res.stdout
+    return (res.stdout || "").replace(/[\r\n]/g, "")
 }
 
 function getGitBranch() {
     const res = spawnSync(...parseCommand('git rev-parse --abbrev-ref HEAD'))
-    return res.stdout
+    return (res.stdout || "").replace(/[\r\n]/g, "")
 }
 
 function getGitProjectName() {
     const res = spawnSync(...parseCommand('git rev-parse --absolute-git-dir'))
-    const projectName = res.stdout.split(path.sep).at(-2)
+    const nameList=res.stdout.split(path.sep);
+    const projectName = nameList[nameList.length - 2]
     return projectName
 }
 
@@ -120,6 +121,5 @@ function getMetaRevisedObj() {
         revised: `source:${getGitProjectName()}~${getGitBranch()}~${getGitHash()}`
     }
 }
-
 export default {getMetaRevised, getMetaRevisedObj}
 
